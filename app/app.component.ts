@@ -1,35 +1,34 @@
 // AppComponent Class definition
 
 import { Component } from '@angular/core'; // Import the @Component decorator
+import { FighterDetailComponent } from './fighter-detail.component'
+import { Fighter } from './fighter'
 
-export class Fighter {
-    id: number;
-    name: string;
-}
+const FIGHTERS: Fighter[] = [
+  { id: 11, name: 'Ryu' },
+  { id: 12, name: 'Ken' },
+  { id: 13, name: 'Chun-Li' },
+  { id: 14, name: 'Birdie' },
+  { id: 15, name: 'Cammy' },
+  { id: 16, name: 'Nash' },
+  { id: 17, name: 'Dhalsim' },
+  { id: 18, name: 'Vega' },
+  { id: 19, name: 'M. Bison' },
+  { id: 20, name: 'R. Mika' }
+];
 
-@Component({ // Decorator
-   selector: 'my-app', // CSS Selector where instance of AppComponent will be created
-   template: `
-<h1>{{title}}</h1>
-<h2>{{fighter.name}} details!</h2>
-<div>
-    <label>id: </label>{{fighter.id}}
-</div>
-<div>
-    <label>name: </label>
-    <input [(ngModel)]="fighter.name" placeholder="name">
-</div>
-  ` // What HTML template to render
-})
 
-//  @Component     |   This invoked decorator 
-//  applies to     |        applies to
-// AppComponent   \_/       this class
-
-export class AppComponent {
+@Component({
+    selector: 'my-app',
+    templateUrl:'./templates/app.html',
+    styleUrls: ['./stylesheets/app.css'],
+    directives: [FighterDetailComponent]
+}) export class AppComponent {
+    public fighters = FIGHTERS;
     title = 'Street Fighters';
-    fighter : Fighter = {
-        id: 1,
-        name: 'Ryu'
+    selectedFighter : Fighter;
+
+    onSelect(fighter: Fighter) {
+        this.selectedFighter = fighter;
     }
- } // Control appearance and behaviour of the component
+}
