@@ -9,5 +9,6 @@ Design, content and pretty much everything is subject to change.</p>
 
 ## Preview
 
-!('/assets/fighter-list.png')
-!('/assets/fighter-detail.png')
+![](https://raw.githubusercontent.com/poksme/8-frames/master/assets/fighter-list.png?token=ABnJf_dwbBAr5N7hPUnvcUjbcRTJ5qcoks5Xe6A3wA%3D%3D)
+-------------------------------------
+![](https://raw.githubusercontent.com/poksme/8-frames/master/assets/fighter-detail.png?token=ABnJfyw5BbJNI1ng5b1QS6Eg6WEZqFqBks5Xe6A2wA%3D%3D)
