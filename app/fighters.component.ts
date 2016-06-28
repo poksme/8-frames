@@ -21,7 +21,7 @@ import { FighterService } from './fighter.service';
 
     initFighters() {
         this.fighterService.listFighters().then(function (fighters) {
-             this.fighters = fighters
+            this.fighters = fighters.fighterList;
         }.bind(this));
     }
 
