@@ -1,11 +1,18 @@
+// The Component definition for creating the root component
 import { Component }                                        from '@angular/core';
+
+// The routing tools
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
-import { FighterService }                                   from './fighter.service';
-import { FightersComponent }                                from './fighters.component';
-import { HomeComponent }                                    from './home.component';
+
+// The global service for fetching data
+import { FighterService }                                   from './fighter/fighter.service';
+
+// The component the route will link to
+import { FighterListComponent }                             from './fighter/list/fighter-list.component';
+import { HomeComponent }                                    from './home/home.component';
 
 @Component({
-  selector: 'my-app',
+  selector: 'my-app', // Will search in index.html for the rout DOM element called my-app
   template: `
     <h1>{{title}}</h1>
     <nav>
@@ -23,7 +30,7 @@ import { HomeComponent }                                    from './home.compone
   {
     name: 'Fighters',
     path:'/fighters',
-    component: FightersComponent
+    component: FighterListComponent
   }, {
     name: 'Home',
     path: '/',

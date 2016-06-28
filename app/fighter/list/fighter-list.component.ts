@@ -1,16 +1,16 @@
 // AppComponent Class definition
 
 import { Component, OnInit } from '@angular/core'; // Import the @Component decorator
-import { FighterDetailComponent } from './fighter-detail.component'
-import { Fighter } from './fighter';
-import { FighterService } from './fighter.service';
+import { FighterDetailComponent } from '../detail/fighter-detail.component'
+import { Fighter } from '../fighter.model';
+import { FighterService } from '../fighter.service';
 
 @Component({
     selector: 'fighters',
     templateUrl:'./templates/fighters.html',
     styleUrls: ['./stylesheets/fighters.css'],
     directives: [FighterDetailComponent]
-}) export class FightersComponent implements OnInit {
+}) export class FighterListComponent implements OnInit {
     title = 'Available Fighters';
     fighters: Fighter[];
     selectedFighter : Fighter;

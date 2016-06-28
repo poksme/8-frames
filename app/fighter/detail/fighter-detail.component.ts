@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Fighter } from './fighter'
+import { Fighter } from '../fighter.model'
 
 @Component({
     selector:'fighter-detail',

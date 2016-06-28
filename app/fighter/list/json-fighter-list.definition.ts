@@ -1,4 +1,4 @@
-interface FighterList {
+interface JSONFighterList {
     feed: {
         entry: {
             id: {
@@ -12,4 +12,4 @@ interface FighterList {
     }
 }
 
-export = FighterList;
+export = JSONFighterList;

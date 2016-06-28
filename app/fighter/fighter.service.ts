@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { Fighter } from './fighter';
-import FighterList = require('./fighter-list.definition');
+import { Fighter } from './fighter.model';
+import JSONFighterList = require('./list/json-fighter-list.definition');
 
 @Injectable() export class FighterService {
     private documentId = "1qHH6gZ6_TvY1FGWlMNYjxUOGb9_aX9fsNOptmKks1SA";
@@ -16,7 +16,7 @@ import FighterList = require('./fighter-list.definition');
                     .then(function (response) {
                         var fighterList: Fighter[] = [];
                         var sheetLinks: {[key: string]:string} = {};
-                        var data : FighterList = response.json();
+                        var data : JSONFighterList = response.json();
                         for (var i = 0; i < data.feed.entry.length; i++) {
                             var fighterName = data.feed.entry[i].title.$t;
                             var sheetId =  data.feed.entry[i].id.$t.split('/');
