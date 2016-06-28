@@ -13,7 +13,7 @@ body {
   margin: 2em; 
 }
 body, input[text], button { 
-  color: #888; 
+  color: #555; 
   font-family: Cambria, Georgia; 
 }
 a {
@@ -134,6 +134,13 @@ nav a.router-link-active {
   height: 1.8em;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
+}
+
+.info {
+  background-color: #eee;
+  color: #888;
+  width: auto;
+  padding: 15px;
 }
 
 /* everywhere else */

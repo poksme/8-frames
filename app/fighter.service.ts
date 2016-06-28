@@ -6,9 +6,7 @@ import FighterList = require('./fighter-list.definition');
 
 @Injectable() export class FighterService {
     private documentId = "1qHH6gZ6_TvY1FGWlMNYjxUOGb9_aX9fsNOptmKks1SA";
-
     constructor(private http: Http) {
-
     }
 
     listFighters() {

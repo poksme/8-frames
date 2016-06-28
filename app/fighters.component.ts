@@ -9,8 +9,7 @@ import { FighterService } from './fighter.service';
     selector: 'fighters',
     templateUrl:'./templates/fighters.html',
     styleUrls: ['./stylesheets/fighters.css'],
-    directives: [FighterDetailComponent],
-    providers: [FighterService]
+    directives: [FighterDetailComponent]
 }) export class FightersComponent implements OnInit {
     title = 'Available Fighters';
     fighters: Fighter[];
