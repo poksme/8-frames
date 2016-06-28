@@ -1,6 +1,7 @@
 // AppComponent Class definition
 
 import { Component, OnInit } from '@angular/core'; // Import the @Component decorator
+import { Router } from '@angular/router';
 import { FighterDetailComponent } from '../detail/fighter-detail.component'
 import { Fighter } from '../fighter.model';
 import { FighterService } from '../fighter.service';
@@ -15,7 +16,7 @@ import { FighterService } from '../fighter.service';
     fighters: Fighter[];
     selectedFighter : Fighter;
 
-    constructor(private fighterService: FighterService) {
+    constructor(private fighterService: FighterService, private router: Router) {
     }
 
     initFighters() {
@@ -25,7 +26,8 @@ import { FighterService } from '../fighter.service';
     }
 
     onSelect(fighter: Fighter) {
-        this.selectedFighter = fighter;
+        this.router.navigate(['Fighter Detail', fighter.id]);
+        // this.selectedFighter = fighter;
     }
 
     ngOnInit() {
