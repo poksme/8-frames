@@ -6,3 +6,8 @@ The data is fetched from [this google doc](https://docs.google.com/spreadsheets/
 Design, content and pretty much everything is subject to change.</p>
 
 >This project is developed for educational purpose, it is free and open. Check the repository, fork it, play with it.
+
+## Preview
+
+!('/assets/fighter-list.png')
+!('/assets/fighter-detail.png')
