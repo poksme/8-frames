@@ -13,21 +13,23 @@ import { FighterService } from '../fighter.service';
     directives: [FighterDetailComponent]
 }) export class FighterListComponent implements OnInit {
     title = 'Available Fighters';
-    fighters: Fighter[];
-    selectedFighter : Fighter;
+    fighters: {[key:string]:string};
 
     constructor(private fighterService: FighterService, private router: Router) {
     }
 
     initFighters() {
         this.fighterService.listFighters().then(function (fighters) {
-            this.fighters = fighters.fighterList;
+            this.fighters = fighters;
         }.bind(this));
     }
 
-    onSelect(fighter: Fighter) {
-        this.router.navigate(['Fighter Detail', fighter.id]);
-        // this.selectedFighter = fighter;
+    getNameList(): string[] {
+        return Object.keys(this.fighters);
+    }
+
+    onSelect(slug: string) {
+        this.router.navigate(['/fighter', slug]);
     }
 
     ngOnInit() {

@@ -1,9 +1,9 @@
 export class Fighter {
-    id: number;
+    attacks: {[key:string]:string};
     name: string;
 
-    constructor(id: number, name: string) {
-        this.id = id;
+    constructor(name: string, attacks: {[key:string]:string}) {
         this.name = name;
+        this.attacks = attacks;
     }
 }

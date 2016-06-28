@@ -1,10 +1,8 @@
 <h2 *ngIf="fighters == null">Fetching fighters...</h2>
 <h2 *ngIf="fighters">{{title}}</h2>
-<ul class="fighters">
-  <li *ngFor="let fighter of fighters" 
-  [class.selected]="fighter === selectedFighter"
-  (click)="onSelect(fighter)">
-    <span class="badge">{{fighter.id}}</span> {{fighter.name}}
+<ul *ngIf="fighters" class="fighters">
+  <li *ngFor="let name of getNameList();" 
+  (click)="onSelect(fighters[name])">
+    <span class="badge"> - </span> {{name}}
   </li>
 </ul>
-<fighter-detail [fighter]="selectedFighter"></fighter-detail>

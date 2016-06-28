@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Fighter } from './fighter.model';
 import JSONFighterList = require('./list/json-fighter-list.definition');
+import JSONFighterDetail = require('./detail/json-fighter-detail.definition');
 
 @Injectable() export class FighterService {
     private documentId = "1qHH6gZ6_TvY1FGWlMNYjxUOGb9_aX9fsNOptmKks1SA";
@@ -14,22 +15,33 @@ import JSONFighterList = require('./list/json-fighter-list.definition');
                     .get(this.getDocumentUrl())
                     .toPromise()
                     .then(function (response) {
-                        var fighterList: Fighter[] = [];
-                        var sheetLinks: {[key: string]:string} = {};
+                        var ret: {[key: string]:string} = {};
                         var data : JSONFighterList = response.json();
                         for (var i = 0; i < data.feed.entry.length; i++) {
                             var fighterName = data.feed.entry[i].title.$t;
                             var sheetId =  data.feed.entry[i].id.$t.split('/');
-                            fighterList.push(new Fighter(i + 1, fighterName));
-                            sheetLinks[fighterName] = sheetId[sheetId.length - 1];
+                            ret[fighterName] = sheetId[sheetId.length - 1];
                         }
-                        return {fighterList: fighterList, fighterSheetLinks: sheetLinks};
+                        return ret;
                     })
                     .catch(this.handleError);
     }
 
     getFighter(key) {
-        return null;
+        console.log('get fighter:' + key);
+        return this.http
+                    .get(this.getSheetUrl(key))
+                    .toPromise()
+                    .then(function (response) {
+                        var attacks : {[key: string] : string} = {};
+                        var data : JSONFighterDetail = response.json();
+                        for (var i = 0; i < data.feed.entry.length; i++) {
+                            var attackName = data.feed.entry[i].title.$t;
+                            attacks[attackName] = data.feed.entry[i].content.$t;
+                        }
+                        return new Fighter(data.feed.title.$t, attacks);
+                    })
+                    .catch(this.handleError);;
     }
 
     private getDocumentUrl() {
