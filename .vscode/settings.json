@@ -4,8 +4,8 @@
         "**/.git": true,
         "**/.svn": true,
         "**/.DS_Store": true,
-        "**/*.js": true,
-        "**/*.js.map": true,
+        "app/*.js": true,
+        "app/*.js.map": true,
         "node_modules/": true,
         "typings/": true,
         ".vscode/": true

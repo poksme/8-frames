@@ -1,10 +1,9 @@
-  <h2>{{title}}</h2>
+  <h2 *ngIf="fighters == null">Fetching fighters...</h2>
+  <h2 *ngIf="fighters">{{title}}</h2>
   <ul class="fighters">
-    <li 
-    *ngFor="let fighter of fighters" 
+    <li *ngFor="let fighter of fighters" 
     [class.selected]="fighter === selectedFighter"
-    (click)="onSelect(fighter)"
-    >
+    (click)="onSelect(fighter)">
       <span class="badge">{{fighter.id}}</span> {{fighter.name}}
     </li>
   </ul>

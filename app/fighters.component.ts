@@ -20,7 +20,7 @@ import { FighterService } from './fighter.service';
     }
 
     initFighters() {
-        this.fighterService.fetchFighters().then(function (fighters) {
+        this.fighterService.listFighters().then(function (fighters) {
              this.fighters = fighters
         }.bind(this));
     }
