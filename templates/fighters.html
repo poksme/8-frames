@@ -1,0 +1,8 @@
+<h2 *ngIf="fighters == null">Fetching fighters...</h2>
+<h2 *ngIf="fighters">{{title}}</h2>
+<ul *ngIf="fighters" class="fighters">
+  <li *ngFor="let name of getNameList();" 
+  (click)="onSelect(fighters[name])">
+    <span class="badge"> - </span> {{name}}
+  </li>
+</ul>

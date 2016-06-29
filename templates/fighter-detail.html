@@ -1,0 +1,8 @@
+<div *ngIf="fighter">
+    <h2>{{fighter.name}}</h2>
+    <ul class="fighters">
+        <li *ngFor="let attack of getAttackList();">
+            <span class="badge"> {{attack}} </span> {{fighter.attacks[attack]}}
+        </li>
+    </ul>
+</div>
