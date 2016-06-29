@@ -19,7 +19,7 @@ import { FighterService } from '../fighter.service';
     }
 
     initFighters() {
-        this.fighterService.listFighters().then(function (fighters) {
+        this.fighterService.listFighters().then(function (fighters: Fighter[]) {
             this.fighters = fighters;
         }.bind(this));
     }
