@@ -43,3 +43,5 @@ tsconfig.json
 typings.json
 typings/
 .vscode/
+*.ts
+/**/*.ts
